@@ -22,8 +22,8 @@ export default Component.extend({
     }
 
     for (let sprite of removedSprites) {
-		console.log(window.innerHeight / 2);
-      sprite.endAtPixel({ y: window.innerHeight / 2 });
+		console.log(window.innerHeight - 200);
+      sprite.endAtPixel({ y: window.innerHeight - 200 });
       move(sprite, { easing: easeIn });
     }
   },

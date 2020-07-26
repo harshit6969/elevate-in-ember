@@ -10,10 +10,8 @@ export default Component.extend({
   },
 
   transition: function* ({ insertedSprites, keptSprites, removedSprites }) {
-	  console.log(insertedSprites);
     for (let sprite of insertedSprites) {
-		console.log(window.innerHeight);
-      sprite.startAtPixel({ y: window.innerHeight });
+      sprite.startAtPixel({ x: window.innerWidth });
       move(sprite, { easing: easeOut });
     }
 
@@ -22,8 +20,7 @@ export default Component.extend({
     }
 
     for (let sprite of removedSprites) {
-		console.log(window.innerHeight / 2);
-      sprite.endAtPixel({ y: window.innerHeight / 2 });
+      sprite.endAtPixel({ x: window.innerWidth });
       move(sprite, { easing: easeIn });
     }
   },

@@ -1,0 +1,9 @@
+<h2>{{@title}}</h2>
+
+<ul>
+	{{#animated-each @people use=transition}}
+	<li>
+		<button type="button" {{on 'click' (fn this.showPerson person)}}>{{person}}</button>
+	</li>
+	{{/animated-each}}
+</ul>

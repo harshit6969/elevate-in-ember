@@ -1,0 +1,16 @@
+<h2>{{@title}}</h2>
+
+<ul>
+	{{#animated-each guests use=transition}}
+
+  
+  <Icon 'user' />
+
+  
+{{/animated-each}}
+    {{#each @people as |person|}}
+    <li>
+      <button type="button" {{on 'click' (fn this.showPerson person)}}>{{person}}</button>
+    </li>
+    {{/each}}
+</ul>
