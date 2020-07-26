@@ -1,0 +1,42 @@
+[
+  {
+    "number": 5,
+    "hasLiftA": false,
+    "hasLiftB": false,
+    "hasLiftC": true,
+    "isLast": true,
+    "isFirst": false
+  },
+  {
+    "number": 4,
+    "hasLiftA": false,
+    "hasLiftB": false,
+    "hasLiftC": false,
+    "isLast": false,
+    "isFirst": false
+  },
+  {
+    "number": 3,
+    "hasLiftA": false,
+    "hasLiftB": true,
+    "hasLiftC": false,
+    "isLast": false,
+    "isFirst": false
+  },
+  {
+    "number": 2,
+    "hasLiftA": false,
+    "hasLiftB": false,
+    "hasLiftC": false,
+    "isLast": false,
+    "isFirst": false
+  },
+  {
+    "number": 1,
+    "hasLiftA": true,
+    "hasLiftB": false,
+    "hasLiftC": false,
+    "isLast": false,
+    "isFirst": true
+  }
+]
