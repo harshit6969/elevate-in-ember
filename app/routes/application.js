@@ -1,7 +1,9 @@
 import Route from '@ember/routing/route';
 
 export default class FloorsRoute extends Route {
-  model() {
-    return ['Marie Curie', 'Mae Jemison', 'Albert Hofmann'];
+  async model() {
+    let response = await fetch('/floor-setup.json');
+    let parsed = await response.json();
+    return parsed;
   }
 }
