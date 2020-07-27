@@ -77,17 +77,19 @@ export default class FloorManagerService extends Service {
     const nextFloorNewState = { ...nextFloor, hasLiftA, hasLiftB, hasLiftC };
     const currentFloorNewState = {
       ...currentFloor,
-      hasLiftA: hasLiftA === true ? !hasLiftA : hasLiftA,
-      hasLiftB: hasLiftB === true ? !hasLiftB : hasLiftB,
+      hasLiftA: hasLiftA === true ? !hasLiftA : hasLiftA, 
+      hasLiftB: hasLiftB === true ? !hasLiftB : hasLiftB, 
       hasLiftC: hasLiftC === true ? !hasLiftC : hasLiftC,
     };
 
     const newFloorState =
       movementType === "up"
         ? [nextFloorNewState, currentFloorNewState]
-        : [currentFloorNewState, nextFloorNewState];
+		: [currentFloorNewState, nextFloorNewState];
+
     let floorSetup = this.floorSetup;
-    floorSetup.splice(length - floorNumber - 1, 2, ...newFloorState);
+	floorSetup.splice(length - floorNumber - 1, 2, ...newFloorState);
+	console.log('floorSetup', floorSetup);
     this.floorSetup = floorSetup;
   }
 }
