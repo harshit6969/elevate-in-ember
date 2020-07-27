@@ -48,9 +48,8 @@ export default class FloorManagerService extends Service {
   updateLiftPosition(movementType, floorNumber) {
     const length = this.floorSetup.length;
     const currentFloor = this.floorSetup.filter(
-      (floor) => floor.number === floorNumber
+      floor => floor.number === floorNumber
     )[0];
-
     const { hasLiftA, hasLiftB, hasLiftC } = currentFloor;
 
     let nextFloor;
@@ -87,8 +86,8 @@ export default class FloorManagerService extends Service {
       movementType === "up"
         ? [nextFloorNewState, currentFloorNewState]
         : [currentFloorNewState, nextFloorNewState];
-
-    this.floorSetup.splice(length - floorNumber - 1, 2, ...newFloorState);
-    console.log(this.floorSetup);
+    let floorSetup = this.floorSetup;
+    floorSetup.splice(length - floorNumber - 1, 2, ...newFloorState);
+    this.floorSetup = floorSetup;
   }
 }
