@@ -1,30 +1,15 @@
-import Component from "@ember/component";
-import move from "ember-animated/motions/move";
-import { easeOut, easeIn } from "ember-animated/easings/cosine";
+import Component from "@glimmer/component";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
-export default Component.extend({
-  showThing: false,
+export default class ApplicationComponent extends Component {
+  @service floorManager;
 
-  toggleThing() {
-    this.set("showThing", !this.get("showThing"));
-  },
+  @action handleUp(fromFloor) {
+	this.floorManager.updateLiftPosition("up", fromFloor);
+  }
 
-  transition: function* ({ insertedSprites, keptSprites, removedSprites }) {
-	  console.log(insertedSprites);
-    for (let sprite of insertedSprites) {
-		console.log(window.innerHeight);
-      sprite.startAtPixel({ y: window.innerHeight });
-      move(sprite, { easing: easeOut });
-    }
-
-    for (let sprite of keptSprites) {
-      move(sprite);
-    }
-
-    for (let sprite of removedSprites) {
-		console.log(window.innerHeight / 2);
-      sprite.endAtPixel({ y: window.innerHeight / 2 });
-      move(sprite, { easing: easeIn });
-    }
-  },
-});
+  @action handleDown(fromFloor) {
+	this.floorManager.updateLiftPosition("down", fromFloor);
+  }
+}

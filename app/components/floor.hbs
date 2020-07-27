@@ -1,8 +1,38 @@
-<button {{action toggleThing}}>Toggle</button>
- <AnimatedContainer>
-   {{#animated-if showThing use=transition }}
-       <div class="message" {{action "toggleThing"}}>
-           Hello!
-       </div>
-   {{/animated-if}}
- </AnimatedContainer>
+<div class="container">
+	{{#each floorManager.floorSetup as |floor|}}
+	<div class="row">
+		<div class="col-11">
+			<div class="row lift-row" style="max-height: 70px">
+				<div class="col-2 btn-group-vertical">
+					{{#unless floor.isLast}}
+					<button {{on "click" (fn this.handleUp floor.number)}}
+						class="btn btn-primary elevator-fn-btn">UP
+						{{floor.number}} </button>
+					{{/unless}}
+					{{#unless floor.isFirst}}
+					<button {{on "click" (fn this.handleDown floor.number)}}
+						class="btn btn-warning elevator-fn-btn">DOWN {{floor.number}} </button>
+					{{/unless}}
+				</div>
+				<div class="col text-center">
+					{{#if floor.hasLiftA}}
+					<img src="https://ik.imagekit.io/lemonbouy/elevator_Y3VK7rcdO55.png?tr=w-100" alt="elevator.png">
+					{{/if}}
+				</div>
+				<div class="col text-center">
+					{{#if floor.hasLiftB}}
+					<img src="https://ik.imagekit.io/lemonbouy/elevator_Y3VK7rcdO55.png?tr=w-100" alt="elevator.png">
+					{{/if}}
+				</div>
+				<div class="col text-center">
+					{{#if floor.hasLiftC}}
+					<img src="https://ik.imagekit.io/lemonbouy/elevator_Y3VK7rcdO55.png?tr=w-100" alt="elevator.png">
+					{{/if}}
+				</div>
+			</div>
+			<hr style="border-top: .25rem solid black;">
+		</div>
+		<div class="col-1"><span style="bottom:7px; position:absolute">Floor {{floor.number}}</span></div>
+	</div>
+	{{/each}}
+</div>
