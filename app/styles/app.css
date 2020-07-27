@@ -1,12 +1,12 @@
-.lift{
- background-color: black; 
- width: 5rem;
- min-height: 7rem;
-}
-
 .lift-row{
   min-height: 7rem;
 }
+
+.elevator-fn-btn {
+	max-height: 50px;
+	margin: 10px 0px;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
